@@ -13,6 +13,7 @@ export class TaskPage {
      */
     async addTask(taskName: string) {
         // Hace clic en el campo de entrada para añadir la tarea
+        await this.page.waitForSelector('input[placeholder="What needs to be done?"]', { state: 'visible' });
         await this.page.getByPlaceholder('What needs to be done?').click();
         // Llena el campo de entrada con el nombre de la tarea
         await this.page.getByPlaceholder('What needs to be done?').fill(taskName);
